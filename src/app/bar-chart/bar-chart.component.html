@@ -1,0 +1,21 @@
+<!-- <p-chart type="bar" [data]="data" [options]="options"></p-chart> -->
+
+<div *ngIf="data" style="width: 30vw; height: 30vw;">
+  <p-table [value]="chartData$ | async" autoLayout="true">
+    <ng-template pTemplate="header">
+      <tr>
+        <th pSortableColumn="label">Date<p-sortIcon field="label"></p-sortIcon></th>
+        <th pSortableColumn="value">Count<p-sortIcon field="value"></p-sortIcon></th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-item>
+      <tr>
+        <td>{{ item.label }}</td>
+        <td>{{ item.value }}</td>
+      </tr>
+    </ng-template>
+    <!-- <ng-template pTemplate="summary">
+        There are {{total}} items in the global queue
+    </ng-template> -->
+  </p-table>
+</div>
