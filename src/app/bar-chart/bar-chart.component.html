@@ -19,3 +19,20 @@
     </ng-template> -->
   </p-table>
 </div>
+
+<p-table #audits [columns]="cols" [value]="userData" autoLayout="true" >
+  <ng-template pTemplate="header" let-columns>
+    <tr>
+      <th *ngFor="let col of columns">
+        {{col}}
+      </th>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-rowData let-columns="columns">
+    <tr [pSelectableRow]="rowData">
+      <td *ngFor="let col of columns">
+        {{rowData[col]}}
+      </td>
+    </tr>
+  </ng-template>
+</p-table>
